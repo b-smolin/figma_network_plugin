@@ -1,0 +1,8 @@
+{
+  "name": "RESTma",
+  "id": "1204139544736954996",
+  "api": "1.0.0",
+  "main": "code.js",
+  "editorType": ["figma"],
+  "ui": "ui.html"
+}

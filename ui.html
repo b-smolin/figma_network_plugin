@@ -1,0 +1,28 @@
+<h2>Make HTTP Request</h2>
+<p>Endpoint: <input id="endpoint" type="text" value="https://nameday.abalin.net/api/V1/tomorrow" /></p>
+<p>
+  Request Type:
+  <select id="rtype">
+    <option value="GET">GET</option>
+    <option valute="POST">POST</option>
+  </select>
+</p>
+<button id="send">Send</button>
+<button id="close">Close</button>
+<script>
+  document.getElementById("send").onclick = async () => {
+    const endpoint = document.getElementById("endpoint").value;
+    const type = document.getElementById("rtype").value;
+    let req = new XMLHttpRequest();
+    req.open(type, endpoint);
+    req.responseType = "json";
+    req.onload = () => {
+      parent.postMessage({ pluginMessage: { type: "make-request", content: req.response } }, "*");
+    };
+    req.send();
+  };
+
+  document.getElementById("close").onclick = () => {
+    parent.postMessage({ pluginMessage: { type: "close" } }, "*");
+  };
+</script>
