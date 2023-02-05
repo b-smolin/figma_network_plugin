@@ -18,12 +18,10 @@ if (figma.editorType === "figma") {
     if (msg.type === "make-request") {
       const nodes: SceneNode[] = [];
       const txt = figma.createText();
-      txt.x = figma.viewport.center.x;
+      txt.x = figma.viewport.center.x - 200;
       txt.y = figma.viewport.center.y;
-
       await figma.loadFontAsync(txt.fontName as FontName);
       txt.characters = JSON.stringify(msg.content);
-
       nodes.push(txt);
       figma.currentPage.selection = nodes;
     }
