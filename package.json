@@ -12,5 +12,8 @@
   "devDependencies": {
     "@figma/plugin-typings": "^1.58.0",
     "typescript": "*"
+  },
+  "dependencies": {
+    "firebase": "^9.17.1"
   }
 }
